@@ -1,11 +1,13 @@
 import Link from "next/link";
+import { UtensilsCrossed, Beer, BedDouble, Hotel, Landmark } from "lucide-react";
+import ScrollFX from "./scrollfx";
 
 const CATEGORIES = [
-  { ico: "🍽️", name: "Restaurantes" },
-  { ico: "🍺", name: "Bares" },
-  { ico: "🛏️", name: "Pousadas" },
-  { ico: "🏨", name: "Hotéis" },
-  { ico: "⛪", name: "Pontos turísticos" },
+  { Icon: UtensilsCrossed, name: "Restaurantes" },
+  { Icon: Beer, name: "Bares" },
+  { Icon: BedDouble, name: "Pousadas" },
+  { Icon: Hotel, name: "Hotéis" },
+  { Icon: Landmark, name: "Pontos turísticos" },
 ];
 
 const STEPS = [
@@ -46,58 +48,57 @@ const STEPS = [
 export default function Home() {
   return (
     <>
-      {/* NAV */}
+      <ScrollFX />
+
+      {/* NAV — top bar flutuante */}
       <header className="nav">
-        <div className="nav-inner">
-          <Link href="/">
-            <img className="nav-logo" src="/brand/logo.png" alt="Black Bells" />
+        <Link href="/">
+          <img className="nav-logo" src="/brand/logotipo.png" alt="Black Bells" />
+        </Link>
+        <nav className="nav-links">
+          <a href="#app">O app</a>
+          <a href="#nfc">Tecnologia NFC</a>
+          <Link className="btn btn-accent" href="/privacidade">
+            Privacidade
           </Link>
-          <nav className="nav-links">
-            <a href="#app">O app</a>
-            <a href="#nfc">Tecnologia NFC</a>
-            <Link className="btn btn-accent" href="/privacidade">
-              Privacidade
-            </Link>
-          </nav>
-        </div>
+        </nav>
       </header>
 
-      {/* HERO */}
+      {/* HERO — full */}
       <section className="hero">
-        <div className="hero-inner">
-          <div>
-            <p className="eyebrow">Avaliações · Ouro Preto</p>
-            <h1>
-              O seu app de avaliações em <span className="accent">Ouro Preto</span>
-            </h1>
-            <p className="hero-sub">
-              Descubra e avalie os melhores bares, restaurantes, pousadas, hotéis
-              e pontos turísticos da cidade — e ajude a comunidade a encontrar o
-              que Ouro Preto tem de melhor.
-            </p>
-            <div className="hero-cta">
-              <a className="btn btn-primary" href="#app">
-                Ver como funciona
-              </a>
-              <a className="btn btn-outline" href="#nfc">
-                Conheça a tecnologia NFC
-              </a>
-            </div>
-            <p className="hero-note">Em breve na App Store e no Google Play.</p>
+        <div className="hero-copy" data-reveal>
+          <p className="eyebrow">Avaliações · Ouro Preto</p>
+          <h1>
+            O seu app de avaliações em <span className="accent">Ouro Preto</span>
+          </h1>
+          <p className="hero-sub">
+            Descubra e avalie os melhores bares, restaurantes, pousadas, hotéis e
+            pontos turísticos da cidade — e ajude a comunidade a encontrar o que
+            Ouro Preto tem de melhor.
+          </p>
+          <div className="hero-cta">
+            <a className="btn btn-primary" href="#app">
+              Ver como funciona
+            </a>
+            <a className="btn btn-outline" href="#nfc">
+              Conheça a tecnologia NFC
+            </a>
           </div>
-          <div className="hero-media">
-            <img
-              src="/brand/hero.png"
-              alt="App Black Bells aberto em um iPhone"
-            />
-          </div>
+          <p className="hero-note">Em breve na App Store e no Google Play.</p>
+        </div>
+        <div className="hero-shot" data-reveal>
+          <img
+            src="/brand/hero.png"
+            alt="App Black Bells aberto em um iPhone"
+            data-parallax="0.16"
+          />
         </div>
       </section>
 
       {/* CATEGORIAS */}
       <section className="section">
         <div className="wrap">
-          <div className="section-head">
+          <div className="section-head" data-reveal>
             <p className="eyebrow">O que você encontra</p>
             <h2>Tudo o que Ouro Preto oferece, em um só app.</h2>
             <p>
@@ -106,20 +107,22 @@ export default function Home() {
             </p>
           </div>
           <div className="cats">
-            {CATEGORIES.map((c) => (
-              <div className="cat" key={c.name}>
-                <span className="cat-ico">{c.ico}</span>
-                <span className="cat-name">{c.name}</span>
+            {CATEGORIES.map(({ Icon, name }) => (
+              <div className="cat" key={name} data-reveal>
+                <span className="cat-ico">
+                  <Icon strokeWidth={1.75} aria-hidden />
+                </span>
+                <span className="cat-name">{name}</span>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* WALKTHROUGH — telas do app */}
+      {/* WALKTHROUGH */}
       <section className="section" id="app">
         <div className="wrap">
-          <div className="section-head">
+          <div className="section-head" data-reveal>
             <p className="eyebrow">Como funciona</p>
             <h2>Da descoberta à avaliação, em poucos toques.</h2>
           </div>
@@ -129,13 +132,13 @@ export default function Home() {
                 className={`walk-row${s.reverse ? " reverse" : ""}`}
                 key={s.step}
               >
-                <div className="walk-text">
+                <div className="walk-text" data-reveal>
                   <p className="walk-step">{s.step}</p>
                   <h3>{s.title}</h3>
                   <p>{s.text}</p>
                 </div>
-                <div className="walk-media">
-                  <img src={s.img} alt={s.title} />
+                <div className="walk-media" data-reveal>
+                  <img src={s.img} alt={s.title} data-parallax="0.14" />
                 </div>
               </div>
             ))}
@@ -147,7 +150,7 @@ export default function Home() {
       <section className="section" id="nfc">
         <div className="wrap">
           <div className="nfc-grid">
-            <div className="nfc-text">
+            <div className="nfc-text" data-reveal>
               <span className="nfc-badge">Tecnologia NFC</span>
               <h2>Avalie com um toque.</h2>
               <p>
@@ -160,27 +163,40 @@ export default function Home() {
                 esteve no local.
               </p>
             </div>
-            <div className="nfc-media">
-              <img src="/brand/nfc-parede.png" alt="Adesivo NFC Black Bells aplicado na fachada de um estabelecimento" />
+            <div className="nfc-media" data-reveal>
               <img
-                className="nfc-sticker"
-                src="/brand/nfc-sticker.png"
-                alt="Adesivo NFC Black Bells"
+                src="/brand/nfc-parede.png"
+                alt="Adesivo NFC Black Bells aplicado na fachada de um estabelecimento"
+                data-parallax="0.14"
               />
             </div>
+          </div>
+
+          {/* Selo grande, sozinho */}
+          <div className="nfc-seal" data-reveal>
+            <img
+              src="/brand/nfc-sticker.png"
+              alt="Selo NFC Black Bells — avalie no Black Bells"
+              data-parallax="0.1"
+            />
           </div>
         </div>
       </section>
 
       {/* CLOSING */}
       <section className="closing">
-        <img className="closing-logo" src="/brand/logo.png" alt="Black Bells" />
-        <h2>Feito para Ouro Preto.</h2>
-        <p>
+        <img
+          className="closing-logo"
+          src="/brand/logotipo.png"
+          alt="Black Bells"
+          data-reveal
+        />
+        <h2 data-reveal>Feito para Ouro Preto.</h2>
+        <p data-reveal>
           Fique por dentro do lançamento do Black Bells e seja um dos primeiros a
           avaliar a cidade.
         </p>
-        <div className="hero-cta">
+        <div className="hero-cta" data-reveal>
           <a
             className="btn btn-primary"
             href="mailto:blackbellsapp@gmail.com?subject=Quero%20saber%20do%20lan%C3%A7amento%20do%20Black%20Bells"
@@ -194,7 +210,7 @@ export default function Home() {
       <footer className="site-footer">
         <div className="foot-inner">
           <div className="foot-brand">
-            <img src="/brand/logo.png" alt="Black Bells" />
+            <img src="/brand/logotipo.png" alt="Black Bells" />
             <p>
               O app de descoberta e avaliação de estabelecimentos de Ouro Preto.
               Feito em Minas Gerais.
