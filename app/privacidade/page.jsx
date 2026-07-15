@@ -1,4 +1,5 @@
 import { loadLegalBody } from "../legal";
+import LegalShell from "../legalshell";
 
 export const metadata = {
   title: "Política de Privacidade — Black Bells",
@@ -8,5 +9,5 @@ export const metadata = {
 
 export default function Privacidade() {
   const body = loadLegalBody("privacidade");
-  return <div className="legal" dangerouslySetInnerHTML={{ __html: body }} />;
+  return <LegalShell html={body} />;
 }
