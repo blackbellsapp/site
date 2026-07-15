@@ -190,9 +190,22 @@ a {
   border-radius: var(--r-pill);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
 }
+.nav-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
 .nav-logo {
   height: 42px;
   width: auto;
+}
+.nav-wordmark {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 23px;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  color: var(--white);
 }
 .nav-links {
   display: flex;
@@ -665,6 +678,9 @@ a {
   }
   .nav-logo {
     height: 36px;
+  }
+  .nav-wordmark {
+    font-size: 19px;
   }
   .hero {
     padding-top: 150px;

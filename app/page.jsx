@@ -53,8 +53,9 @@ export default function Home() {
 
       {/* NAV — top bar flutuante */}
       <header className="nav">
-        <Link href="/">
+        <Link href="/" className="nav-brand">
           <img className="nav-logo" src="/brand/logotipo.png" alt="Black Bells" />
+          <span className="nav-wordmark">Black Bells</span>
         </Link>
         <nav className="nav-links">
           <a href="#app">O app</a>
