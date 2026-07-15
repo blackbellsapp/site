@@ -126,7 +126,7 @@ export default function Home() {
             <h2>Da descoberta à avaliação, em poucos toques.</h2>
           </div>
           <div className="walk">
-            {STEPS.map((s) => (
+            {STEPS.map((s, i) => (
               <div
                 className={`walk-row${s.reverse ? " reverse" : ""}`}
                 key={s.step}
@@ -137,7 +137,12 @@ export default function Home() {
                   <p>{s.text}</p>
                 </div>
                 <div className="walk-media">
-                  <img src={s.img} alt={s.title} data-parallax="0.24" />
+                  {/* amplitude escalonada para dar o efeito Apple/Framer */}
+                  <img
+                    src={s.img}
+                    alt={s.title}
+                    data-parallax={i % 2 === 0 ? 130 : 85}
+                  />
                 </div>
               </div>
             ))}

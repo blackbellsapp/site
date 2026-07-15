@@ -3,17 +3,23 @@
 import { useEffect } from "react";
 
 /**
- * Ilha de interatividade (client) que adiciona:
- *  - Reveal: elementos com [data-reveal] aparecem ao entrar na viewport.
- *  - Parallax: elementos com [data-parallax="<speed>"] deslizam conforme o
- *    scroll do mouse (estilo Apple — a imagem se move perante o scroll).
+ * Ilha de interatividade (client):
+ *
+ *  - Reveal: elementos com [data-reveal] aparecem uma vez ao entrar na tela.
+ *
+ *  - Scroll animation (estilo Apple/Framer): elementos com [data-parallax]
+ *    têm a posição ANCORADA no próprio scroll — conforme o elemento cruza a
+ *    viewport, ele desliza continuamente. O valor de [data-parallax] é a
+ *    amplitude em px (quanto maior, mais deslocamento). Segue o scroll do
+ *    mouse para os dois lados; role pra baixo, sobe; role pra cima, desce.
+ *
  * Respeita prefers-reduced-motion.
  */
 export default function ScrollFX() {
   useEffect(() => {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    // ---- Reveal ao entrar na tela ----
+    // ---- Reveal ----
     const reveals = Array.from(document.querySelectorAll("[data-reveal]"));
     if (reduce) {
       reveals.forEach((el) => el.classList.add("is-visible"));
@@ -36,20 +42,25 @@ export default function ScrollFX() {
 
     if (reduce) return;
 
-    // ---- Parallax por scroll ----
+    // ---- Scroll animation ancorada por elemento ----
     const items = Array.from(document.querySelectorAll("[data-parallax]")).map(
-      (el) => ({ el, speed: parseFloat(el.getAttribute("data-parallax")) || 0.12 })
+      (el) => ({ el, amp: parseFloat(el.getAttribute("data-parallax")) || 80 })
     );
+    if (items.length === 0) return;
 
     let ticking = false;
     const update = () => {
-      const vh = window.innerHeight;
-      for (const { el, speed } of items) {
+      const vh = window.innerHeight || document.documentElement.clientHeight;
+      for (const { el, amp } of items) {
         const r = el.getBoundingClientRect();
-        // progresso do elemento cruzando a viewport: -1 (abaixo) .. 1 (acima)
-        const progress = (r.top + r.height / 2 - vh / 2) / (vh / 2 + r.height / 2);
-        const shift = -progress * speed * 100;
-        el.style.transform = `translate3d(0, ${shift.toFixed(2)}px, 0)`;
+        const center = r.top + r.height / 2;
+        // p: 0 quando o centro do elemento está no meio da tela,
+        // +1 quando entra pela base, -1 quando sai pelo topo.
+        let p = (center - vh / 2) / (vh / 2);
+        if (p > 1.5) p = 1.5;
+        if (p < -1.5) p = -1.5;
+        const shift = -p * amp;
+        el.style.transform = `translate3d(0, ${shift.toFixed(1)}px, 0)`;
       }
       ticking = false;
     };
