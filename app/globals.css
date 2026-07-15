@@ -282,9 +282,9 @@ a {
 }
 .hero-shot img {
   position: absolute;
-  inset: -15% 0 0 0;
+  inset: 0;
   width: 100%;
-  height: 130%;
+  height: 100%;
   object-fit: cover;
 }
 
@@ -456,18 +456,15 @@ a {
 }
 .nfc-media {
   position: relative;
-  aspect-ratio: 16 / 11;
   border-radius: var(--r-xl);
   overflow: hidden;
   border: 1px solid var(--border);
   box-shadow: 0 34px 80px rgba(0, 0, 0, 0.55);
 }
 .nfc-media img {
-  position: absolute;
-  inset: -14% 0 0 0;
   width: 100%;
-  height: 128%;
-  object-fit: cover;
+  height: auto;
+  display: block;
 }
 /* Selo grande, sozinho, abaixo da seção */
 .nfc-seal {

@@ -16,7 +16,7 @@ const STEPS = [
     step: "01",
     img: "/screens/abertura.png",
     title: "Entre em segundos",
-    text: "Acesse com a Apple ou o Google e comece a explorar Ouro Preto na hora — sem cadastro complicado.",
+    text: "Acesse com a Apple ou o Google e comece a explorar Ouro Preto na hora, sem cadastro complicado.",
   },
   {
     step: "02",
@@ -70,11 +70,13 @@ export default function Home() {
         <div className="hero-copy" data-reveal>
           <p className="eyebrow">Avaliações · Ouro Preto</p>
           <h1>
-            O seu app de avaliações em <span className="accent">Ouro Preto</span>
+            O seu app de avaliações
+            <br />
+            em <span className="accent">Ouro Preto</span>
           </h1>
           <p className="hero-sub">
             Descubra e avalie os melhores bares, restaurantes, pousadas, hotéis e
-            pontos turísticos da cidade — e ajude a comunidade a encontrar o que
+            pontos turísticos da cidade, e ajude a comunidade a encontrar o que
             Ouro Preto tem de melhor.
           </p>
           <div className="hero-cta">
@@ -87,12 +89,8 @@ export default function Home() {
           </div>
           <p className="hero-note">Em breve na App Store e no Google Play.</p>
         </div>
-        <div className="hero-shot" data-reveal>
-          <img
-            src="/brand/hero.png"
-            alt="App Black Bells aberto em um iPhone"
-            data-parallax="0.16"
-          />
+        <div className="hero-shot">
+          <img src="/brand/hero.png" alt="App Black Bells aberto em um iPhone" />
         </div>
       </section>
 
@@ -133,13 +131,13 @@ export default function Home() {
                 className={`walk-row${s.reverse ? " reverse" : ""}`}
                 key={s.step}
               >
-                <div className="walk-text" data-reveal>
+                <div className="walk-text">
                   <p className="walk-step">{s.step}</p>
                   <h3>{s.title}</h3>
                   <p>{s.text}</p>
                 </div>
-                <div className="walk-media" data-reveal>
-                  <img src={s.img} alt={s.title} data-parallax="0.14" />
+                <div className="walk-media">
+                  <img src={s.img} alt={s.title} data-parallax="0.24" />
                 </div>
               </div>
             ))}
@@ -156,7 +154,7 @@ export default function Home() {
               <h2>Avalie com um toque.</h2>
               <p>
                 Cada estabelecimento parceiro recebe um adesivo Black Bells com
-                tecnologia NFC. Basta aproximar o celular para avaliar na hora —
+                tecnologia NFC. Basta aproximar o celular para avaliar na hora,
                 rápido, real e sem complicação.
               </p>
               <p>
@@ -168,7 +166,6 @@ export default function Home() {
               <img
                 src="/brand/nfc-parede.png"
                 alt="Adesivo NFC Black Bells aplicado na fachada de um estabelecimento"
-                data-parallax="0.14"
               />
             </div>
           </div>
