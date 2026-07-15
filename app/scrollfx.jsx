@@ -55,11 +55,12 @@ export default function ScrollFX() {
         const r = el.getBoundingClientRect();
         const center = r.top + r.height / 2;
         // p: 0 quando o centro do elemento está no meio da tela,
-        // +1 quando entra pela base, -1 quando sai pelo topo.
+        // +1 quando entra pela base (embaixo), <0 quando passa do meio.
         let p = (center - vh / 2) / (vh / 2);
+        if (p < 0) p = 0; // não sobe além da posição original (repouso em 0)
         if (p > 1.5) p = 1.5;
-        if (p < -1.5) p = -1.5;
-        const shift = -p * amp;
+        // começa deslocado pra baixo (+) na entrada e sobe até 0 (posição original)
+        const shift = p * amp;
         el.style.transform = `translate3d(0, ${shift.toFixed(1)}px, 0)`;
       }
       ticking = false;
