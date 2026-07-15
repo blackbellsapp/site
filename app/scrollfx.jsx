@@ -1,19 +1,16 @@
 "use client";
 
 import { useEffect } from "react";
+import Lenis from "lenis";
 
 /**
  * Ilha de interatividade (client):
- *
+ *  - Smooth scroll (Lenis): rolagem suave com inércia na página inteira.
  *  - Reveal: elementos com [data-reveal] aparecem uma vez ao entrar na tela.
- *
- *  - Scroll animation (estilo Apple/Framer): elementos com [data-parallax]
- *    têm a posição ANCORADA no próprio scroll — conforme o elemento cruza a
- *    viewport, ele desliza continuamente. O valor de [data-parallax] é a
- *    amplitude em px (quanto maior, mais deslocamento). Segue o scroll do
- *    mouse para os dois lados; role pra baixo, sobe; role pra cima, desce.
- *
- * Respeita prefers-reduced-motion.
+ *  - Scroll animation (Apple/Framer): [data-parallax] (amplitude em px) — o
+ *    elemento começa deslocado para baixo e sobe até a posição original
+ *    conforme o scroll, ancorado na própria posição.
+ * Tudo roda no mesmo RAF do Lenis. Respeita prefers-reduced-motion.
  */
 export default function ScrollFX() {
   useEffect(() => {
@@ -40,44 +37,57 @@ export default function ScrollFX() {
       reveals.forEach((el) => el.classList.add("is-visible"));
     }
 
+    // Sem animações se o usuário pediu redução de movimento.
     if (reduce) return;
+
+    // ---- Smooth scroll ----
+    const lenis = new Lenis({
+      duration: 1.15,
+      smoothWheel: true,
+      wheelMultiplier: 1,
+      touchMultiplier: 1.6,
+    });
 
     // ---- Scroll animation ancorada por elemento ----
     const items = Array.from(document.querySelectorAll("[data-parallax]")).map(
       (el) => ({ el, amp: parseFloat(el.getAttribute("data-parallax")) || 80 })
     );
-    if (items.length === 0) return;
-
-    let ticking = false;
-    const update = () => {
+    const applyParallax = () => {
       const vh = window.innerHeight || document.documentElement.clientHeight;
       for (const { el, amp } of items) {
         const r = el.getBoundingClientRect();
         const center = r.top + r.height / 2;
-        // p: 0 quando o centro do elemento está no meio da tela,
-        // +1 quando entra pela base (embaixo), <0 quando passa do meio.
         let p = (center - vh / 2) / (vh / 2);
-        if (p < 0) p = 0; // não sobe além da posição original (repouso em 0)
+        if (p < 0) p = 0; // não passa da posição original (repouso em 0)
         if (p > 1.5) p = 1.5;
-        // começa deslocado pra baixo (+) na entrada e sobe até 0 (posição original)
-        const shift = p * amp;
-        el.style.transform = `translate3d(0, ${shift.toFixed(1)}px, 0)`;
-      }
-      ticking = false;
-    };
-    const onScroll = () => {
-      if (!ticking) {
-        ticking = true;
-        requestAnimationFrame(update);
+        el.style.transform = `translate3d(0, ${(p * amp).toFixed(1)}px, 0)`;
       }
     };
 
-    update();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
+    let rafId;
+    const raf = (time) => {
+      lenis.raf(time);
+      applyParallax();
+      rafId = requestAnimationFrame(raf);
+    };
+    rafId = requestAnimationFrame(raf);
+
+    // ---- Âncoras (#app, #nfc) com rolagem suave ----
+    const onClick = (e) => {
+      const a = e.target.closest && e.target.closest('a[href^="#"]');
+      if (!a) return;
+      const id = a.getAttribute("href");
+      if (id.length > 1 && document.querySelector(id)) {
+        e.preventDefault();
+        lenis.scrollTo(id, { offset: -100 });
+      }
+    };
+    document.addEventListener("click", onClick);
+
     return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
+      cancelAnimationFrame(rafId);
+      document.removeEventListener("click", onClick);
+      lenis.destroy();
     };
   }, []);
 

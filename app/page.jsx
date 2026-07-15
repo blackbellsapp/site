@@ -142,7 +142,7 @@ export default function Home() {
                   <img
                     src={s.img}
                     alt={s.title}
-                    data-parallax={i % 2 === 0 ? 130 : 85}
+                    data-parallax={i % 2 === 0 ? 208 : 136}
                   />
                 </div>
               </div>
