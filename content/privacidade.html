@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Política de Privacidade — Black Bells</title>
+<meta name="description" content="Política de Privacidade do aplicativo Black Bells, em conformidade com a Lei Geral de Proteção de Dados (LGPD).">
+<link rel="icon" href="black-bells-black.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1a1a1a;
+    --soft:#2b2b2b;
+    --muted:#767676;
+    --accent:#8a6a00;
+    --line:#e6e6e6;
+    --box:#faf7ec;
+    --box-line:#ece3c2;
+    --maxw:900px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:#fff;color:var(--ink);
+    font-family:'Inter',Arial,Helvetica,sans-serif;
+    font-size:15px;line-height:1.62;-webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline;text-underline-offset:2px}
+
+  .doc{max-width:var(--maxw);margin:0 auto;padding:64px 40px 88px;counter-reset:sec}
+
+  h1{text-align:center;font-weight:700;font-size:27px;letter-spacing:.02em;text-transform:uppercase;margin:0 0 6px}
+  .date{text-align:center;color:var(--muted);font-size:13px;margin:0 0 56px}
+
+  section{margin:0}
+  h2{font-size:19px;font-weight:700;margin:38px 0 12px;line-height:1.3;counter-reset:sub}
+  h2::before{counter-increment:sec;content:counter(sec) ". "}
+  h3{font-size:15px;font-weight:700;margin:20px 0 6px;color:var(--ink)}
+  h3::before{counter-increment:sub;content:counter(sec) "." counter(sub) "  "}
+  p{margin:0 0 13px;color:var(--soft)}
+  ul{margin:0 0 13px;padding-left:22px}
+  li{margin-bottom:6px;color:var(--soft)}
+  strong{font-weight:700;color:var(--ink)}
+
+  .box{background:var(--box);border:1px solid var(--box-line);border-left:3px solid var(--accent);border-radius:6px;padding:14px 18px;margin:2px 0 14px}
+  .box p{margin:0;color:var(--soft)}
+  .fill{background:#fff2c8;border-bottom:1px dashed #c9a400;padding:0 3px;color:#5c4600;font-weight:600}
+
+  .contact{border:1px solid var(--line);border-radius:8px;padding:20px 22px;margin:6px 0 0}
+  .contact .role{font-weight:700;color:var(--ink);margin:0 0 4px}
+  .contact p{margin:0 0 4px}
+
+  /* ── Rodapé (LP · Figma 18-4421) ── */
+  footer{background:#0E0E0E;color:#fff;margin-top:8px}
+  .lp-foot{max-width:1120px;margin:0 auto;padding:60px 40px 30px}
+  .lp-top{display:grid;grid-template-columns:1fr auto;gap:48px;align-items:start}
+  .lp-brand img{height:32px;display:block;margin-bottom:16px}
+  .lp-tag{color:#9aa0a6;font-size:13px;max-width:26ch;line-height:1.55;margin:0}
+  .lp-cols{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:40px}
+  .lp-col h4{text-transform:uppercase;letter-spacing:.14em;font-size:11px;color:#9aa0a6;margin:0 0 15px;font-weight:700}
+  .lp-col a{display:block;color:rgba(255,255,255,.88);font-size:14px;margin-bottom:11px;font-weight:400}
+  .lp-col a:hover{color:#EFB800;text-decoration:none}
+  .lp-bottom{max-width:1120px;margin:40px auto 0;padding:22px 40px 0;border-top:1px solid #262626;display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center}
+  .lp-bottom p{margin:0;color:#8a8f94;font-size:13px}
+  .lp-legal{display:flex;gap:22px;flex-wrap:wrap}
+  .lp-legal a{color:#8a8f94;font-size:13px}
+  .lp-legal a:hover{color:#fff;text-decoration:none}
+
+  @media (max-width:680px){
+    .doc{padding:48px 22px 64px}
+    h1{font-size:22px}
+    .lp-top{grid-template-columns:1fr;gap:30px}
+    .lp-cols{grid-template-columns:repeat(2,1fr);gap:26px}
+    .lp-foot,.lp-bottom{padding-left:22px;padding-right:22px}
+    .lp-bottom{justify-content:flex-start}
+  }
+</style>
+</head>
+<body>
+
+<main class="doc" id="topo">
+
+  <h1>Política de Privacidade</h1>
+  <p class="date">Data da última revisão: 10 de julho de 2026</p>
+
+  <section>
+    <h2>Introdução</h2>
+    <h3>Objeto</h3>
+    <p>Esta Política de Privacidade descreve como a Black Bells ("Black Bells", "nós") coleta, utiliza, compartilha, armazena e protege os dados pessoais dos usuários de seus aplicativos para os sistemas operacionais iOS e Android (o "Aplicativo" ou "Serviço").</p>
+    <h3>Legislação aplicável</h3>
+    <p>O tratamento de dados pessoais realizado pela Black Bells observa a Lei nº 13.709/2018 (Lei Geral de Proteção de Dados Pessoais, "LGPD") e as demais normas aplicáveis à proteção de dados no Brasil.</p>
+    <h3>Aceitação</h3>
+    <p>Ao criar uma conta ou utilizar o Aplicativo, você declara ter lido e compreendido esta Política. Este documento integra e complementa os <a href="/termos">Termos de Uso</a> do Aplicativo.</p>
+  </section>
+
+  <section>
+    <h2>Controlador e Encarregado</h2>
+    <h3>Controlador dos dados</h3>
+    <p>O controlador dos dados pessoais tratados no âmbito do Aplicativo, para os fins da LGPD, é a <strong>Black Bells</strong>, inscrita no CNPJ sob o nº 65.001.722/0001-06, com sede na Rua Dezoito de Julho, nº 29, bairro Ipiranga, Belo Horizonte/MG, CEP 31.160-230.</p>
+    <h3>Encarregado (DPO)</h3>
+    <p>O Encarregado pelo Tratamento de Dados Pessoais pode ser contatado pelo endereço eletrônico <a href="mailto:blackbellsapp@gmail.com">blackbellsapp@gmail.com</a>, canal destinado a solicitações e dúvidas relativas a esta Política.</p>
+  </section>
+
+  <section>
+    <h2>Dados pessoais coletados</h2>
+    <p>A coleta de dados limita-se ao necessário para as finalidades descritas nesta Política e varia conforme o perfil de uso, de visitante ou de proprietário de estabelecimento.</p>
+    <h3>Dados fornecidos pelo usuário</h3>
+    <p>No cadastro e na utilização do Aplicativo, você fornece nome, endereço de e-mail e foto de perfil, obtidos por meio do login com Google, Apple ou e-mail e senha, e, quando informado, número de telefone. O proprietário de estabelecimento fornece ainda o nome do estabelecimento, o CNPJ, o endereço, o telefone de contato, a descrição, o horário de funcionamento e as imagens que decidir publicar. As avaliações incluem a nota de 1 a 5 sinos, o comentário e, quando anexada, a fotografia do momento.</p>
+    <h3>Dados coletados automaticamente</h3>
+    <p>Durante o uso, são coletados o modelo do dispositivo, a versão do sistema operacional, a versão do Aplicativo, dados de desempenho e de falhas por meio do Firebase Performance, e sinais de verificação de integridade do dispositivo por meio do Firebase App Check, destinados à segurança e à prevenção de fraudes. O tratamento de dados de localização está descrito na Seção 7.</p>
+    <h3>Dados obtidos de terceiros</h3>
+    <p>Ao utilizar o login social, a Black Bells recebe do Google ou da Apple o seu nome, o seu e-mail e o identificador da respectiva conta. No cadastro de estabelecimento, os dados de endereço podem ser obtidos por meio do serviço Google Places, sendo o texto digitado na busca enviado ao Google.</p>
+  </section>
+
+  <section>
+    <h2>Finalidades e bases legais do tratamento</h2>
+    <p>Cada operação de tratamento possui finalidade específica e a correspondente base legal prevista no art. 7º da LGPD.</p>
+    <h3>Execução de contrato</h3>
+    <p>Criação e manutenção da conta, direcionamento do usuário à área correspondente ao seu perfil, publicação do perfil do estabelecimento no mapa e nas buscas, registro e exibição das avaliações e comunicações relativas à conta e ao Serviço.</p>
+    <h3>Consentimento</h3>
+    <p>Acesso à localização para centralização do mapa e, quando disponíveis, envio de notificações. O consentimento é solicitado no momento oportuno e pode ser revogado a qualquer tempo nos ajustes do dispositivo.</p>
+    <h3>Legítimo interesse</h3>
+    <p>Manutenção da estabilidade e da segurança do Aplicativo, medição de desempenho e prevenção a fraudes e usos abusivos, respeitados os direitos e as liberdades do titular.</p>
+    <h3>Cumprimento de obrigação legal</h3>
+    <p>Atendimento a obrigações legais e regulatórias e a determinações de autoridades competentes, quando aplicável.</p>
+  </section>
+
+  <section>
+    <h2>Compartilhamento de dados</h2>
+    <p>A Black Bells não comercializa dados pessoais e não os compartilha com redes de publicidade de terceiros. O compartilhamento restringe-se às hipóteses a seguir.</p>
+    <h3>Conteúdo de exibição pública</h3>
+    <p>As avaliações são exibidas publicamente no Aplicativo, acompanhadas do nome de exibição e da foto de perfil do autor. O perfil de um estabelecimento é exibido com as imagens, o endereço e o contato cadastrados pelo proprietário. O endereço de e-mail, o número de telefone e a localização do usuário não são exibidos em avaliações.</p>
+    <h3>Operadores e provedores de serviço</h3>
+    <p>A Black Bells utiliza os serviços do Google (Firebase e Google Cloud) para hospedagem da conta, do banco de dados e das imagens e para processamento do login e do mapa; da Apple, para o serviço "Entrar com a Apple" e para a verificação de integridade do dispositivo no iOS; e do Google Maps e do Google Places, para exibição do mapa e complementação de endereços. Esses agentes tratam os dados exclusivamente para a prestação do serviço à Black Bells, conforme suas próprias políticas.</p>
+    <h3>Autoridades e obrigações legais</h3>
+    <p>Os dados poderão ser divulgados para o cumprimento de obrigação legal ou regulatória ou em atendimento a ordem de autoridade competente.</p>
+  </section>
+
+  <section>
+    <h2>Autenticação por Google e Apple</h2>
+    <p>O acesso ao Aplicativo pode ser realizado por meio de Google, Apple ou e-mail e senha. No login social, a Black Bells recebe o nome, o e-mail e o identificador da conta, não tendo acesso à senha do usuário junto a esses provedores.</p>
+    <p>No serviço "Entrar com a Apple", o usuário pode optar por ocultar o seu endereço de e-mail real, hipótese em que a Apple disponibiliza um endereço de reencaminhamento, opção que é integralmente respeitada.</p>
+  </section>
+
+  <section>
+    <h2>Dados de localização</h2>
+    <p>A localização é utilizada exclusivamente para centralizar o mapa de estabelecimentos na posição aproximada do usuário. A permissão é solicitada em contexto, com a finalidade informada em tela, e o tratamento ocorre apenas enquanto o Aplicativo está em uso, sem coleta em segundo plano e sem registro de histórico de deslocamento. A recusa ou a revogação da permissão não impede a utilização das demais funcionalidades do Aplicativo.</p>
+  </section>
+
+  <section>
+    <h2>Câmera e fotografias</h2>
+    <p>O acesso à câmera e à galeria de imagens ocorre somente mediante ação do usuário destinada ao envio de uma imagem, a saber, a foto de perfil, as imagens e o banner de um estabelecimento ou a fotografia anexada a uma avaliação. As imagens enviadas são armazenadas no Firebase Storage. As imagens de estabelecimento e de avaliação possuem caráter público no Aplicativo, e a foto de perfil é exibida em conjunto com as avaliações do usuário.</p>
+  </section>
+
+  <section>
+    <h2>Avaliações e conteúdo público</h2>
+    <p>A avaliação publicada no Aplicativo constitui conteúdo de caráter público e exibe a nota em sinos, o comentário, a data, o nome de exibição e a foto de perfil do autor, além da fotografia, quando anexada. O endereço de e-mail, o número de telefone e a localização não são exibidos. A exclusão de uma avaliação ou da conta implica a sua retirada, com o consequente recálculo da nota média do estabelecimento.</p>
+  </section>
+
+  <section>
+    <h2>Funcionalidades em desenvolvimento</h2>
+    <p>As funcionalidades a seguir integram o projeto do Aplicativo, mas não se encontram ativas nesta versão. Esta Política será atualizada previamente à sua ativação.</p>
+    <h3>Tag NFC (prova de presença)</h3>
+    <p>Destina-se à confirmação da presença física do usuário no estabelecimento, mediante aproximação do dispositivo a uma etiqueta, cuja leitura corresponde ao código da etiqueta, o qual não identifica o usuário isoladamente.</p>
+    <h3>Notificações</h3>
+    <p>Quando ativadas, permitirão a comunicação, por notificação push, de novas avaliações e respostas, mediante permissão do usuário e coleta de um identificador de notificação do dispositivo.</p>
+    <h3>Pagamentos</h3>
+    <p>Os planos e anúncios pagos não possuem cobrança integrada nesta versão. A eventual cobrança será operada por provedor de pagamento especializado, não transitando os dados de cartão pelos servidores da Black Bells.</p>
+  </section>
+
+  <section>
+    <h2>Prazo de conservação</h2>
+    <p>Os dados pessoais são conservados enquanto a conta permanecer ativa. A exclusão da conta implica a remoção do perfil, das avaliações e das imagens enviadas pelo usuário. Determinados registros técnicos e de segurança poderão ser conservados por prazo adicional limitado, quando necessário ao cumprimento de obrigação legal ou à apuração de fraude. As cópias de segurança são substituídas no curso normal do ciclo de reciclagem de backups.</p>
+  </section>
+
+  <section>
+    <h2>Segurança da informação</h2>
+    <p>A Black Bells adota medidas técnicas e administrativas para a proteção dos dados pessoais. As comunicações ocorrem por conexões criptografadas, os dados são hospedados na infraestrutura do Google Cloud e do Firebase, e o acesso é regido por regras que delimitam a leitura e a escrita de cada informação, com verificação de integridade do dispositivo. Nenhum sistema é integralmente imune a falhas; na hipótese de incidente de segurança que possa acarretar risco relevante aos titulares, a Black Bells comunicará os afetados e a Autoridade Nacional de Proteção de Dados (ANPD), na forma da LGPD.</p>
+  </section>
+
+  <section>
+    <h2>Direitos do titular</h2>
+    <p>Nos termos do art. 18 da LGPD, é assegurado ao titular, mediante requisição, o exercício dos seguintes direitos:</p>
+    <ul>
+      <li>confirmação da existência de tratamento e acesso aos dados;</li>
+      <li>correção de dados incompletos, inexatos ou desatualizados;</li>
+      <li>anonimização, bloqueio ou eliminação de dados desnecessários ou excessivos;</li>
+      <li>portabilidade dos dados a outro fornecedor de serviço;</li>
+      <li>eliminação dos dados tratados com base no consentimento;</li>
+      <li>informação sobre as entidades com as quais os dados foram compartilhados;</li>
+      <li>revogação do consentimento.</li>
+    </ul>
+    <p>As solicitações devem ser encaminhadas ao endereço <a href="mailto:blackbellsapp@gmail.com">blackbellsapp@gmail.com</a>. A Black Bells confirmará o recebimento e responderá no prazo de até 15 (quinze) dias.</p>
+  </section>
+
+  <section>
+    <h2>Exclusão de conta e de dados</h2>
+    <p>O usuário pode solicitar a exclusão da conta e dos dados a ela associados por meio dos ajustes da conta no próprio Aplicativo ou mediante requisição, a partir do e-mail cadastrado, ao endereço <a href="mailto:blackbellsapp@gmail.com">blackbellsapp@gmail.com</a>. A exclusão remove o perfil, as avaliações e as imagens enviadas pelo usuário, ressalvada a conservação de registros por prazo limitado nas hipóteses previstas na Seção 11.</p>
+  </section>
+
+  <section>
+    <h2>Transferência internacional de dados</h2>
+    <p>O Aplicativo opera sobre a infraestrutura do Google (Firebase e Google Cloud), que pode armazenar e tratar dados em servidores localizados fora do Brasil. Nessas hipóteses, a transferência internacional observa as salvaguardas exigidas pela LGPD, de modo a assegurar nível de proteção equivalente ao previsto na legislação nacional.</p>
+  </section>
+
+  <section>
+    <h2>Tratamento de dados de menores</h2>
+    <p>O Aplicativo destina-se a maiores de 18 (dezoito) anos e não coleta intencionalmente dados de menores de idade. Constatada a existência de conta criada por pessoa abaixo dessa idade, a conta será removida. O responsável legal que identifique tal situação pode contatar a Black Bells pelos canais indicados nesta Política.</p>
+  </section>
+
+  <section>
+    <h2>Alterações desta Política</h2>
+    <p>Esta Política poderá ser atualizada a qualquer tempo. Havendo alteração relevante na forma de tratamento dos dados, a Black Bells comunicará o usuário por meio do Aplicativo ou por e-mail e atualizará a data indicada no topo deste documento. Recomenda-se a consulta periódica a esta página.</p>
+  </section>
+
+  <section>
+    <h2>Contato</h2>
+    <p>Dúvidas, solicitações de acesso ou de exclusão e demais questões relativas a esta Política podem ser encaminhadas ao Encarregado pelo Tratamento de Dados Pessoais:</p>
+    <div class="contact">
+      <p class="role">Encarregado de Dados (DPO) — Black Bells</p>
+      <p><a href="mailto:blackbellsapp@gmail.com">blackbellsapp@gmail.com</a></p>
+      <p style="color:var(--muted);margin-top:8px">Feito em Minas Gerais.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="lp-foot">
+    <div class="lp-top">
+      <div class="lp-brand">
+        <img src="black-bells-white.png" alt="Black Bells">
+        <p class="lp-tag">Avaliações com prova de presença. Feito em Minas Gerais.</p>
+      </div>
+      <div class="lp-cols">
+        <div class="lp-col">
+          <h4>Para o seu negócio</h4>
+          <a href="#topo">Cadastrar meu negócio</a>
+          <a href="#topo">Como funciona a tag NFC</a>
+          <a href="#topo">Black Bells Ads</a>
+          <a href="#topo">Planos Free, Silver e Gold</a>
+        </div>
+        <div class="lp-col">
+          <h4>Para quem visita</h4>
+          <a href="#topo">Baixar o app</a>
+          <a href="#topo">Restaurantes</a>
+          <a href="#topo">Hotelaria</a>
+          <a href="#topo">Experiências</a>
+        </div>
+        <div class="lp-col">
+          <h4>Black Bells</h4>
+          <a href="#topo">Sobre nós</a>
+          <a href="#topo">Contato</a>
+          <a href="#topo">Fale pelo WhatsApp</a>
+        </div>
+        <div class="lp-col">
+          <h4>Legal</h4>
+          <a href="/termos">Termos de uso</a>
+          <a href="/privacidade">Política de privacidade</a>
+          <a href="#topo">Central de ajuda</a>
+        </div>
+      </div>
+    </div>
+    <div class="lp-bottom">
+      <p>© 2026 Black Bells. Feito em Minas Gerais.</p>
+      <div class="lp-legal">
+        <a href="/termos">Termos de uso</a>
+        <a href="/privacidade">Política de privacidade</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
