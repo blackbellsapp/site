@@ -21,3 +21,7 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# assets de marca (fontes-fonte e propostas comerciais internas)
+# os assets usados no site já estão em public/ e app/fonts/
+/Assets Marca
